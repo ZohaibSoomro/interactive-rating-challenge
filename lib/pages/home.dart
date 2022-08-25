@@ -93,11 +93,15 @@ class _HomeState extends State<Home> {
           shape: const StadiumBorder(),
           primary: kSubmitBtnBgColor,
         ),
-        onPressed: () => Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => ThankYou(rating: rating + 1),
-          ),
-        ),
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => ThankYou(rating: rating + 1),
+            ),
+          );
+          rating = 0;
+          setState(() {});
+        },
         child: Padding(
           padding: const EdgeInsets.all(15.0),
           child: Text(
